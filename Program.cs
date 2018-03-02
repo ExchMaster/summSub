@@ -43,6 +43,7 @@ namespace summSub
             }
             Console.WriteLine($"Number of Summarized Subnets: {summIPNetworks.Length}");
             Console.WriteLine($"Raw Number of Subnets: {strSubnets.Count}");
+            Console.WriteLine("test repot");
             fs.Close();
 
 
