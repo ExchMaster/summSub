@@ -1,0 +1,10 @@
+C:\Users\jingram\Documents\GitHub\summSub\bin\Debug\netcoreapp2.0\summSub.deps.json
+C:\Users\jingram\Documents\GitHub\summSub\bin\Debug\netcoreapp2.0\summSub.runtimeconfig.json
+C:\Users\jingram\Documents\GitHub\summSub\bin\Debug\netcoreapp2.0\summSub.runtimeconfig.dev.json
+C:\Users\jingram\Documents\GitHub\summSub\bin\Debug\netcoreapp2.0\summSub.dll
+C:\Users\jingram\Documents\GitHub\summSub\bin\Debug\netcoreapp2.0\summSub.pdb
+C:\Users\jingram\Documents\GitHub\summSub\obj\Debug\netcoreapp2.0\summSub.csproj.CoreCompileInputs.cache
+C:\Users\jingram\Documents\GitHub\summSub\obj\Debug\netcoreapp2.0\summSub.AssemblyInfoInputs.cache
+C:\Users\jingram\Documents\GitHub\summSub\obj\Debug\netcoreapp2.0\summSub.AssemblyInfo.cs
+C:\Users\jingram\Documents\GitHub\summSub\obj\Debug\netcoreapp2.0\summSub.dll
+C:\Users\jingram\Documents\GitHub\summSub\obj\Debug\netcoreapp2.0\summSub.pdb
