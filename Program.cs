@@ -59,7 +59,7 @@ namespace summSub
                 Console.WriteLine();
                 Console.WriteLine("Summarize Subnets - summSub usage:");
                 Console.WriteLine();
-                Console.WriteLine("What does summSubb do:  summSub will aggregate all subnets found within any files found within the");
+                Console.WriteLine("What does summSub do:  summSub will aggregate all subnets found within any files found within the");
                 Console.WriteLine("provided input directory and summarize them.  For example if a file contains:");
                 Console.WriteLine();
                 Console.WriteLine("192.168.2.0/24");
@@ -74,10 +74,10 @@ namespace summSub
                 Console.WriteLine("Use of summSub requires the input directory of the files containing the subnets to be summarized");
                 Console.WriteLine("supplied as an argument when launching the command as follows:");
                 Console.WriteLine();
-                Console.WriteLine("-  To parse files in the current working directory, simple use a period:  'summSubb .'");
-                Console.WriteLine("-  To parse files in a specific directory, simply supply the directory path: 'summSubb C:\\subnets\\input'");
+                Console.WriteLine("-  To parse files in the current working directory, simple use a period:  'summSub .'");
+                Console.WriteLine("-  To parse files in a specific directory, simply supply the directory path: 'summSub C:\\subnets\\input'");
                 Console.WriteLine();
-                Console.WriteLine("Notes:  summSubb will parse all files in the input directory with a file name that includes the phrase 'ipranges'");
+                Console.WriteLine("Notes:  summSub will parse all files in the input directory with a file name that includes the phrase 'ipranges'");
                 Console.WriteLine("and will exclude all lines which do not contain a ':' or a '/'.  summSub should work for both ipv4 and");
                 Console.WriteLine("ipv6 summariazation efforts.");
                 Console.WriteLine();
