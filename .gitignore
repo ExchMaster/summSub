@@ -12,6 +12,8 @@
 [Dd]ebug/
 [Rr]elease/
 x64/
+bin/
+obj/
 [Bb]in/
 [Oo]bj/
 .vscode/
