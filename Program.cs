@@ -48,7 +48,7 @@ namespace summSub
             Console.WriteLine($"Aggregate Number of Subnets: {strSubnets.Count}");
             Console.WriteLine($"Summarized Subnets: {summIPNetworks.Length}");
             Console.WriteLine();
-            Console.WriteLine($"Output file: {args[0] + "\\summarizedSubnets.txt"}");
+            Console.WriteLine($"Output file: {args[0] + "/summarizedSubnets.txt"}");
             Console.WriteLine();
             
 
