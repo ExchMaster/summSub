@@ -12,48 +12,63 @@ namespace summSub
             {
                 helpRequested();
             }
-
-            DirectoryInfo diTop = new DirectoryInfo(args[0]);
-            List<string> strSubnets = new List<string>();
-
-            foreach (FileInfo fi in diTop.EnumerateFiles("*ipranges*"))
+            try
             {
-                foreach (string line in File.ReadLines(fi.FullName))
+                DirectoryInfo diTop = new DirectoryInfo(args[0]);
+                List<string> strSubnets = new List<string>();
+
+                foreach (FileInfo fi in diTop.EnumerateFiles("*ipranges*"))
                 {
-                    if (line.Contains(":") || line.Contains("/"))
+
+                    foreach (string line in File.ReadLines(fi.FullName))
                     {
-                        strSubnets.Add(line);
+                        if (line.Contains(":") || line.Contains("/"))
+                        {
+                            strSubnets.Add(line);
+                        }
                     }
+
+                }
+                int numSubnets = strSubnets.Count;
+                IPNetwork[] ipSubnets = new IPNetwork[numSubnets];
+
+                StreamWriter fs = new StreamWriter(args[0] + "/summarizedSubnets.txt");
+
+                for (int i = 0; i < numSubnets; i++)
+                {
+                    ipSubnets[i] = IPNetwork.Parse(strSubnets[i]);
                 }
 
+                IPNetwork[] summIPNetworks = IPNetwork.Supernet(ipSubnets);
 
-            }
-            int numSubnets = strSubnets.Count;
-            IPNetwork[] ipSubnets = new IPNetwork[numSubnets];
+                foreach (IPNetwork item in summIPNetworks)
+                {
+                    fs.WriteLine(item.ToString());
+                }
+                Console.WriteLine();
+                Console.WriteLine($"Aggregate Number of Subnets: {strSubnets.Count}");
+                Console.WriteLine($"Summarized Subnets: {summIPNetworks.Length}");
+                Console.WriteLine();
+                Console.WriteLine($"Output file: {args[0] + "/summarizedSubnets.txt"}");
+                Console.WriteLine();
 
-            StreamWriter fs = new StreamWriter(args[0] + "/summarizedSubnets.txt");
 
-            for (int i = 0; i < numSubnets; i++)
+                fs.Close();
+           }
+            catch (System.ArgumentNullException ex)
             {
-                ipSubnets[i] = IPNetwork.Parse(strSubnets[i]);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Please verify file subnets are in proper CIDR notation format with netmasks: '192.168.1.0/24'");
+            } 
+            catch (System.ArgumentException ex) {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Please verify subnet ID within input files utilizes proper CIDR notation format: '192.168.1.0/24'");
             }
-
-            IPNetwork[] summIPNetworks = IPNetwork.Supernet(ipSubnets);
-
-            foreach (IPNetwork item in summIPNetworks)
-            {
-                fs.WriteLine(item.ToString());
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("There is a disturbance in the force.  Please double check your input files and review usuage guidance by running 'summSub -h'. Proper format per line per file: '192.168.1.0/24'");
             }
-            Console.WriteLine();
-            Console.WriteLine($"Aggregate Number of Subnets: {strSubnets.Count}");
-            Console.WriteLine($"Summarized Subnets: {summIPNetworks.Length}");
-            Console.WriteLine();
-            Console.WriteLine($"Output file: {args[0] + "/summarizedSubnets.txt"}");
-            Console.WriteLine();
             
-
-            fs.Close();
-
             void helpRequested()
             {
                 Console.WriteLine();
